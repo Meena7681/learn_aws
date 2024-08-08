@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+echo "== list bucket"
+
+aws s3 ls
+#all list of buckets
+# aws s3api list-buckets | jq -r '.Buckets | sort_by(.CreationDate) | reverse | .[] | .Name'
+aws s3api list-buckets | jq -r '.Buckets | sort_by(.CreationDate) | reverse | .[0:5] | .[] | .Name'
